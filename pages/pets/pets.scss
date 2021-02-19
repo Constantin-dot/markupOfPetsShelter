@@ -1,0 +1,316 @@
+$color-primary-color: #F1CDB3;
+$color-primary-light: #FDDCC4;
+
+$color-light-s: #FAFAFA;
+$color-light-l: #F6F6F6;
+$color-light-xl: #FFFFFF;
+
+$color-dark-s: #CDCDCD;
+$color-dark-m: #B2B2B2;
+$color-dark-l: #545454;
+$color-dark-xl: #4C4C4C;
+$color-dark-2xl: #444444;
+$color-dark-3xl: #292929; 
+
+$start-screen-gradient-background: url(../../assets/img/noise_transparent@2x.png),
+radial-gradient(100% 215.42% at 0% 0%, #58483A 0%, #262425 100%), 
+#211F20;
+
+$footer-gradient-background: url(../../assets/noise_transparent@2x.png),
+radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%), 
+#211F20;
+
+$card_hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+
+@mixin h2 {
+  font: {
+    family: Georgia;
+    size: 4.4rem;
+    weight: 400;
+  }
+  line-height: 130%;
+}
+
+@mixin h3 {
+  font: {
+    family: Georgia;
+    size: 3.5rem;
+    weight: normal;
+    style: normal;
+  }
+  line-height: 130%;
+  letter-spacing: 0.21rem;
+}
+
+@mixin h4 {
+  font: {
+    family: Georgia;
+    size: 2rem;
+    weight: normal;
+    style: normal;
+  }
+  line-height: 115%;
+  letter-spacing: 0.12rem;
+}
+
+@mixin h5 {
+  font: {
+    family: Georgia;
+    size: 1.5rem;
+    weight: normal;
+    style: normal;
+  }
+  line-height: 110%;
+  letter-spacing: 0.09rem;
+}
+
+@mixin paragraph-l {
+  font: {
+    family: Arial;
+    size: 1.5rem;
+    weight: normal;
+    style: normal;
+  }
+  line-height: 160%;
+}
+
+@mixin paragraph-s {
+  font: {
+    family: Arial;
+    size: 1.2rem;
+    weight: normal;
+    style: italic;
+  }
+  line-height: 150%;
+}
+
+@mixin logo_title {
+  font: {
+    family: Georgia;
+    size: 3.2rem;
+    weight: normal;
+    style: normal;
+  }
+  line-height: 110%;
+  letter-spacing: 0.192rem;
+}
+
+@mixin logo_subtitle {
+  font: {
+    family: Arial;
+    size: 1.3rem;
+    weight: normal;
+    style: normal;
+  }
+  line-height: 110%;
+  letter-spacing: 0.13rem;
+}
+
+@mixin pagination_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5.2rem;
+  height: 5.2rem;
+  box-shadow: inset 0 0 0 0.3rem $color-primary-color;
+  border-radius: 100%;
+  padding: 1.9rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+  transition-duration: 0.5s;
+
+  &:hover {
+    box-shadow: none;
+    background-color: $color-primary-light;
+  }
+}
+
+@mixin button {
+  padding: 1.5rem 4.5rem;
+  font-size: 1.7rem;
+  font-family: Georgia;
+  border-radius: 10rem;
+  line-height: 130%;
+  letter-spacing: 0.108rem;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  transition-duration: 0.5s;
+}
+
+@mixin button_primary {
+  background-color: $color-primary-color;
+
+  &:hover {
+    background-color: $color-primary-light;
+  }
+
+  @include button;
+}
+
+@mixin button_secondary {
+  background-color: transparent;
+  box-shadow: inset 0 0 0 2px $color-primary-color;
+
+  &:hover {
+    box-shadow: none;
+    background-color: $color-primary-light;
+  }
+
+  @include button;
+}
+
+.pets-header {
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    max-width: 100%;
+    position: sticky;
+    min-height: 12rem;
+    background-color: $color-light-xl;
+    z-index: 2;
+  
+    .logo {
+      display: flex;
+      flex-direction: column;
+    
+      &__title {
+        color: $color-dark-l;
+        @include logo_title;
+      }
+      
+      &__subtitle {
+        margin-top: 1rem;
+        text-align: center;
+        color: $color-dark-3xl;
+        @include logo_subtitle;
+      }
+    }
+  
+    .nav {
+      width: 44.3rem;
+      display: flex;
+  
+      &-list {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        list-style-type: none;
+      
+        &__item {
+          display: flex;
+          align-items: center;
+        
+          &__link {
+            color: $color-dark-3xl;
+            font-family: Arial;
+            font-size: 1.5rem;
+            font-weight: 400;
+            line-height: 160%;
+          
+            &_active {
+              border-bottom: solid 0.3rem $color-primary-color;
+            }
+            
+            &_disabled {
+              color: $color-dark-l;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .main {
+    &__wrapper {
+      padding-top: 8rem;
+      padding-bottom: 10rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &-pets__title {
+      color: $color-dark-l;
+      text-align: center;
+      @include h3;
+
+      span {
+        display: block;
+      }
+    }
+
+    &-pets-cards {
+      margin-top: 6rem;
+      display: flex;
+      flex-wrap: wrap;
+      column-gap: 4rem;
+      row-gap: 3rem;
+    }
+
+    &-pets-card {
+      display: flex;
+      flex-direction: column;
+      border-radius: 0.9rem;
+  
+      &:hover {
+        box-shadow: $card_hover;
+      }
+  
+      &__image {
+        width: 100%;
+      }
+  
+      &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 3rem;
+        background-color: $color-light-s;
+      }
+  
+      &__title {
+        margin: 3rem 0;
+        text-align: center;
+        @include h4;
+      }
+  
+      &__button {
+        @include button_secondary;
+      }
+    }
+
+    &-pagination {
+      margin-top: 6rem;
+      display: flex;
+      justify-content: center;
+
+      &__button {
+        margin: 0 1rem;
+        @include pagination_button;
+        @include h4;
+
+        &_active {
+          box-shadow: none;
+          background-color: $color-primary-color;
+
+          &:hover {
+            background-color: $color-primary-color;
+          }
+        }
+
+        &:disabled {
+          box-shadow: inset 0 0 0 0.3rem $color-dark-s;
+
+          &:hover {
+            box-shadow: inset 0 0 0 0.3rem $color-dark-s;
+            background-color: transparent;
+            cursor: auto;
+          }
+        }
+      }
+    }
+  }
+
+  
